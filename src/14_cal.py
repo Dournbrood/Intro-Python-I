@@ -30,3 +30,33 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+print(sys.argv[1::1])
+print(datetime.today())
+
+calendar.Calendar(6)
+todaysDate = (f"{datetime.today()}")[0:10:1]
+# print(f"{todaysDate[0:4:1]}, {todaysDate[5:7:1]}")
+
+
+def smartDate(*args):
+
+    year = todaysDate[0:4:1]
+
+    if args.__len__() == 1 and int(args[0]) <= 12:
+        month = args[0]
+    elif args.__len__() == 2:
+        if int(args[0]) > 12:
+            year = args[0]
+            month = args[1]
+        else:
+            year = args[1]
+            month = args[0]
+    else:
+        print("command usage: python 14_cal.py [month] [year]")
+        quit()
+
+    calendar.prmonth(int(year), int(month))
+
+
+smartDate(*sys.argv[1::1])
