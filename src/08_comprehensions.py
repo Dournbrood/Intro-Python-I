@@ -26,7 +26,7 @@ print(y)
 
 a = ["foo", "bar", "baz"]
 
-y = [(word[0:1:1].upper() + word[1::1]) for word in a]
+y = [(word.upper()) for word in a]
 
 print(y)
 
